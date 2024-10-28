@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Read version
         run: |
-          VERSION=$(cat package.json | grep -P '"version":\s"(\d+\.\d+)"' | grep -oP '\d+\.\d+\.\d+')
+          VERSION=$(cat package.json | grep -P '"version":\s"(\d+\.\d+)"' | grep -oP '\d+\.\d+')
           echo "Version (package.json): $VERSION"
           echo "VERSION=$VERSION" >> "$GITHUB_ENV"
       - name: Tag and Push
