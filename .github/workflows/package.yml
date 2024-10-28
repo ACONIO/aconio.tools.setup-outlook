@@ -1,0 +1,21 @@
+name: Tagging
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
+      - name: Zip Script
+        run: zip -r outlook_setup.zip . -x ".git/*" ".github/*"
+      - name: Add Artifact to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: outlook_setup.zip
