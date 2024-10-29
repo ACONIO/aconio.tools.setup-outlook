@@ -67,3 +67,14 @@ if %errorlevel%==0 (
 ) else (
     echo Failed to set registry keys for %targetUser%.
 )
+
+:: =============================
+:: User check if keys were set
+:: =============================
+
+::Open Regedit HKEY_LOCAL_MACHINE
+reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\%build_number%\Outlook\Security"
+
+::Open Regedit HKEY_USERS with the target username
+reg query "HKEY_USERS\%userSID%\Software\Policies\Microsoft\office\%build_number%\Outlook\Security"
+pause
