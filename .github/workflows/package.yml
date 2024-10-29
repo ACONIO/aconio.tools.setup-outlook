@@ -14,7 +14,7 @@ jobs:
         with:
           ref: ${{ github.ref }}
       - name: Zip Script
-        run: zip -r outlook_setup.zip . -x ".git/*" ".github/*"
+        run: zip -r outlook_setup.zip src
       - name: Add Artifact to Release
         uses: softprops/action-gh-release@v2
         with:
