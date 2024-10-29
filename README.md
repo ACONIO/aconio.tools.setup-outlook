@@ -32,3 +32,7 @@ This is the build nubmer of Outlook. You can read out the build number of Outloo
 ### Target Username:
 
 This is the name of the production user provided by the client.
+
+## Notes:
+
+After the script finishes executing, you can verify that the registry keys were set successfully by reviewing the Command Prompt output. The output displays each registry key along with its values, confirming that the keys were added or modified as intended. If any keys are missing or show incorrect values, you may need to review or re-run the script to ensure the settings were applied correctly.
