@@ -22,6 +22,7 @@ echo Setting ObjectModelGuard in HKEY_LOCAL_MACHINE...
 
 :: Set the ObjectModelGuard registry key in HKEY_LOCAL_MACHINE
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\%build_number%\Outlook\Security" /v "ObjectModelGuard" /t REG_DWORD /d 2 /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Office\%build_number%\Outlook\Security" /v "ObjectModelGuard" /t REG_DWORD /d 2 /f
 
 if %errorlevel%==0 (
     echo ObjectModelGuard set successfully in HKEY_LOCAL_MACHINE.
