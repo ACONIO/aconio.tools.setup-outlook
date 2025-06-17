@@ -1,4 +1,4 @@
-:: Version 1.2
+:: Version 1.3
 
 @echo off
 setlocal
@@ -40,7 +40,8 @@ echo Setting security policies in HKEY_CURRENT_USER...
 
 
 :: Get the SID for the target user
-for /f "tokens=2 delims==," %%A in ('wmic useraccount where name^="%target_user%" get sid /value') do (
+for /f "usebackq delims=" %%A in (`powershell -NoProfile -Command ^
+    "(New-Object System.Security.Principal.NTAccount('%target_user%')).Translate([System.Security.Principal.SecurityIdentifier]).Value"`) do (
     set "userSID=%%A"
 )
 
